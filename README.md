@@ -12,7 +12,8 @@ Using historical market data for major ETFs (SPY, QQQ, DIA), the project:
 * Calibrates model inputs (volatility, risk‑free rate, dividend yield)
 * Quantifies and visualizes pricing errors across maturities
 * Interprets model performance in light of market characteristics
-
+  
+**Citation:** Hull, J. (2009). Options, futures and other derivatives. Pearson Education.
 ---
 
 ## Assumptions
@@ -41,7 +42,7 @@ Using historical market data for major ETFs (SPY, QQQ, DIA), the project:
 * **Model Implementations**:
 
   * `binomial_price()` for European calls/puts (vectorized N‑step tree)
-  * `black_scholes_price()` closed‑form formulas and Greeks
+  * `bs_price()` closed‑form formulas and Greeks
 
 * **Error Analysis**:
 
@@ -60,8 +61,7 @@ Using historical market data for major ETFs (SPY, QQQ, DIA), the project:
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/<your-username>/FinClub-OpenProject-2025.git
-   cd FinClub-OpenProject-2025
+   git clone https://github.com/ss-prady/Quant-Finance-European-Option-Pricing.git
    ```
 2. **Create a virtual environment (optional but recommended)**
 
@@ -90,21 +90,6 @@ Using historical market data for major ETFs (SPY, QQQ, DIA), the project:
    * Fetch data for SPY, QQQ, DIA over a specified date range
    * Compute and compare option prices under both models
    * Generate error analyses and plots
-
-3. **Standalone scripts**
-
-   * In `src/`, you can call functions directly:
-
-     ```python
-     from data_utils import fetch_data, get_dividend_yield
-     from binomial_model import binomial_price
-     from black_scholes import black_scholes_price
-
-     # Example: price a 1‑year SPY call
-     price = binomial_price(S=400, K=405, T=1.0, r=0.03, sigma=0.20, q=0.015, steps=1000)
-     bs_price = black_scholes_price(S=400, K=405, T=1.0, r=0.03, sigma=0.20, q=0.015, option_type='call')
-     print(f"Binomial: {price:.2f}, Black‑Scholes: {bs_price:.2f}")
-     ```
 
 ---
 
